@@ -5,12 +5,12 @@ import java.util.Scanner;
 public class Main {
     static void main() {
         Scanner sc = new Scanner(System.in);
-        System.out.println("digite o valor do produto:");
-        double prod= sc.nextDouble ();
-        System.out.println("digite a porcetagem do desconto:");
-        double desc = sc.nextDouble();
-        desc = desc /100;
-        double valorReal= prod - (prod*desc);
-        System.out.println ("Preço do produto com desconto:\n" + "R$" + valorReal );
+        System.out.println("digite o valor do real:");
+        double real= sc.nextDouble ();
+
+        double dolar = real*0.1941;
+
+
+        System.out.println ("valor do real convertido em dolar:\n" + "U$" + dolar );
     }
 }
