@@ -5,9 +5,11 @@ import java.util.Scanner;
 public class Main {
     static void main() {
         Scanner sc = new Scanner(System.in);
-        System.out.println("dê o valor do lado (m)");
+        System.out.println("dê o valor da base (m)");
         double base= sc.nextDouble ();
-        double area = base * base;
-        System.out.println ("area do quadrado\n" + area + " m²");
+        System.out.println("dê o valor da altura (m)");
+        double altura = sc.nextDouble();
+        double peri = base + altura + base + altura;
+        System.out.println ("perimetro do retangulo\n" + peri + " m");
     }
 }
