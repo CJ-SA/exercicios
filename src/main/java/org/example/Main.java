@@ -5,9 +5,9 @@ package org.example;
 public class Main {
     static void main()
     {
-        float A=200.2f;
-        long B= (long) A;
-        double C= B;
-        System.out.println( "valor do float"+ A +"\nvalor do  long: " + B +"\nvalor do double: " + C);
+        short A=20;
+        int B= (int) A;
+        byte C=(byte) A;
+        System.out.println( "valor do short: "+ A +"\nvalor do  int: " + B +"\nvalor do byte: " + C);
     }
 }
