@@ -7,16 +7,21 @@ public class Main {
         Scanner sc = new Scanner (System.in);
 
 
-        System.out.print("digite seu peso [kg]: ");
-        int n1 = sc.nextInt ();
+        System.out.print("digite seu captital inicial: ");
+        double capital = sc.nextDouble ();
 
 
 
-        System.out.print("digite a altura [m]: ");
-        int n2 = sc.nextInt();
+        System.out.print("digite a taxa de juros [decimal]: ");
+        double taxa = sc.nextDouble();
 
 
-        int n3 = n1/n2;
-        System.out.println("Resultado: " + n3 + "\n resto da divisão: " + n1%n2);
+        System.out.print("digite o tempo [meses]: ");
+        double tempo = sc.nextDouble();
+
+
+        double juros = capital * taxa * tempo;
+        System.out.println("Resultado: " + juros);
+
     }
 }
