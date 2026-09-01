@@ -5,18 +5,14 @@ import java.util.Scanner;
 public class Main {
     static void main() {
         Scanner sc = new Scanner(System.in);
-        System.out.println("por favor, diga sua nota entre 0 a 100:");
-        int nota = sc.nextInt();
-        System.out.println("agora fale sua frequência em porcentagem:");
-        int freq = sc.nextInt();
-        boolean cond1 = (nota >= 80) && (freq >= 75);
-        boolean cond2 = ((nota >= 50) && (nota <= 80)) || (freq >= 75);
-        if (!cond2 && !cond1) {
-            System.out.println("reprovado");
-        } else if (cond1) {
-            System.out.println("aprovado com B");
-        } else if (cond2) {
-            System.out.println("aprovado com R");
-        }
+        System.out.println("por favor, diga sua nota de ingles (10 a 0)");
+        double nota1= sc.nextDouble ();
+        System.out.println("por favor, diga sua nota de matemática (10 a 0)");
+        double nota2= sc.nextDouble ();
+        System.out.println("por favor, diga sua nota de portugues (10 a 0)");
+        double nota3= sc.nextDouble ();
+        double media = (nota1 + nota2 + nota3)/ 3;
+        System.out.println ("média:\n" + media);
+
     }
 }
