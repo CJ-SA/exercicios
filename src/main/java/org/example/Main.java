@@ -5,8 +5,9 @@ package org.example;
 public class Main {
     static void main()
     {
-        double A=200.2;
-        int B= (int) A;
+        int A=200;
+        double B=A;
         System.out.println(B);
+
     }
 }
