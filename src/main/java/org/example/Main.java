@@ -5,9 +5,9 @@ import java.util.Scanner;
 public class Main {
     static void main() {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Fale a temperatura em °C");
-        double celsius= sc.nextDouble ();
-        double faren = (celsius*9/5) + 32;
-        System.out.println ("temperatura em farenheit\n" + faren + " °F");
+        System.out.println("dê o valor do lado (m)");
+        double base= sc.nextDouble ();
+        double area = base * base;
+        System.out.println ("area do quadrado\n" + area + " m²");
     }
 }
