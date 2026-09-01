@@ -4,13 +4,18 @@ import java.util.Scanner;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     static void main() {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("digite o valor do real:");
-        double real= sc.nextDouble ();
-
-        double dolar = real*0.1941;
+        Scanner sc = new Scanner (System.in);
 
 
-        System.out.println ("valor do real convertido em dolar:\n" + "U$" + dolar );
+        System.out.println("diga quantos kilometros o carro consegue percorrer com o tanque cheio: ");
+        int n1 = sc.nextInt ();
+
+
+        System.out.println("agora diga quantos litros tem o tanque: ");
+        int n2 = sc.nextInt ();
+
+
+        int n3 = n1/n2;
+        System.out.println("Seu carro faz " + n3 + " Km/l de combustivel");
     }
 }
