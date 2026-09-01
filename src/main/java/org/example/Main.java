@@ -7,16 +7,13 @@ public class Main {
         Scanner sc = new Scanner (System.in);
 
 
-        System.out.print("digite seu peso [kg]: ");
-        double peso = sc.nextDouble ();
 
 
 
-        System.out.print("digite sua altura [m]: ");
+        System.out.print("digite a altura [m]: ");
         double alt = sc.nextDouble ();
 
 
-        double IMC = peso / (alt * alt);
-        System.out.println("Seu IMC é: " + IMC);
+        System.out.print("altura em metros: " + alt + "\naltura em centimetros: " + (alt * 100) + "\naltura em milimetros: " + (alt * 1000));
     }
 }
