@@ -7,15 +7,15 @@ public class Main {
         Scanner sc = new Scanner (System.in);
 
 
-        System.out.println("diga quantos kilometros o carro consegue percorrer com o tanque cheio: ");
+        System.out.println("digite o valor da hora trabalhada: ");
         int n1 = sc.nextInt ();
 
 
-        System.out.println("agora diga quantos litros tem o tanque: ");
+        System.out.println("agora diga quantas horas foram trabalhadas nesse mês: ");
         int n2 = sc.nextInt ();
 
 
-        int n3 = n1/n2;
-        System.out.println("Seu carro faz " + n3 + " Km/l de combustivel");
+        int n3 = n1*n2;
+        System.out.println("Seu salário este mês é de R$ " + n3 + ",00");
     }
 }
