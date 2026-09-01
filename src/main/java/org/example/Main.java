@@ -7,17 +7,20 @@ public class Main {
         Scanner sc = new Scanner (System.in);
 
 
-        System.out.println("digite o valor do raio [cm]: ");
+        System.out.println("digite o valor de A: ");
         double n1 = sc.nextDouble ();
+        double n3 = n1;
 
 
+        System.out.println("digite o valor de B: ");
+        double n2 = sc.nextDouble ();
 
-        double pi = 3.14;
+
+        n1 = n2;
+        System.out.println("O valor de A foi atualizado para o valor de B: " + n1);
+        n2 = n3;
 
 
-        double A = pi*(n1*n1);
-        System.out.println("\nA área do círculo é de " + A + "cm²");
-        System.out.println("\nEm metros, " + A/10000 + "m²\n");
-
+        System.out.println("O valor de B foi atualizado para o valor de A: " + n2);
     }
 }
