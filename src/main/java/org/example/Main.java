@@ -5,11 +5,12 @@ import java.util.Scanner;
 public class Main {
     static void main() {
         Scanner sc = new Scanner(System.in);
-        System.out.println("dê o valor da base (m)");
-        double base= sc.nextDouble ();
-        System.out.println("dê o valor da altura (m)");
-        double altura = sc.nextDouble();
-        double peri = base + altura + base + altura;
-        System.out.println ("perimetro do retangulo\n" + peri + " m");
+        System.out.println("digite o valor do produto:");
+        double prod= sc.nextDouble ();
+        System.out.println("digite a porcetagem do desconto:");
+        double desc = sc.nextDouble();
+        desc = desc /100;
+        double valorReal= prod - (prod*desc);
+        System.out.println ("Preço do produto com desconto:\n" + "R$" + valorReal );
     }
 }
