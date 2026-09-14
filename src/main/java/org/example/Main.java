@@ -6,11 +6,16 @@ public class Main {
     static void main() {
         Scanner sc = new Scanner (System.in);
 
-        int peca = 1;
-        for (int contador =1; contador <=20; contador++) {
-            System.out.println("peça " + peca + " produzida.");
-            peca = peca + 1 ;
+        double total = 0;
+        for (int venda =1; venda <=5; venda++) {
+            System.out.println("digite o preço da venda" + venda);
+            double valor = sc.nextDouble();
+            total += valor;
+
+
+
         }
+        System.out.println ("total: R$" + total);
 
     }
 }
