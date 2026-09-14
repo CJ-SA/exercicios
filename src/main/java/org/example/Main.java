@@ -6,14 +6,11 @@ public class Main {
     static void main() {
         Scanner sc = new Scanner (System.in);
 
+        int peca = 1;
+        for (int contador =1; contador <=20; contador++) {
+            System.out.println("peça " + peca + " produzida.");
+            peca = peca + 1 ;
+        }
 
-        System.out.print("digite o tempo em segundos: ");
-        int seg = sc.nextInt ();
-
-        int min = seg / 60;
-        int hrs = min / 60;
-
-
-        System.out.println("Resultado: " + hrs + " horas, " + (min % 60) + " minutos e " + (seg % 60) + " segundos.");
     }
 }
