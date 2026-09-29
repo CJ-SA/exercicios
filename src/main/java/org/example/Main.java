@@ -1,21 +1,29 @@
 package org.example;
 import java.util.Scanner;
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-public class Main {
-    static void main() {
+// fiz no programiz, não tinha intellij nem visual code no meu pc.
+class Main {
+    public static void main(String[] args) { 
+    
         Scanner sc = new Scanner (System.in);
-
-        int qntcliente = 0;
-        for (int cliente =1; cliente <=10; cliente++) {
-            System.out.println("cliente " + cliente + ", informe sua nota de satisfação");
-            double nota = sc.nextDouble();
-            qntcliente = cliente;
-
-
-
+        double[] producao = new double [7];
+        double total = 0;
+        double maiorProducao = 0;
+                for (int i = 0; i < 7; i++) {
+            System.out.print("Digite a produção da semana " + (i + 1) + " em toneladas: ");
+            producao[i] = sc.nextDouble();
+                    total += producao[i];
+                                
+            if (producao[i] > maiorProducao) {
+                maiorProducao = producao[i];
+            } else{
+              maiorProducao = maiorProducao + 0;
+            }
         }
-        System.out.println ("total: total de avaliações: " + qntcliente);
-
+        double media = total/7;
+        
+        System.out.println("\n--- RESULTADOS ---");
+        System.out.println("Produção total: " + total + " toneladas");
+        System.out.println("Média semanal: " + media + " toneladas");
+        System.out.println("Maior produção: " + maiorProducao + " toneladas");
     }
 }
