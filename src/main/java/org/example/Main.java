@@ -2,21 +2,20 @@ package org.example;
 import java.util.Scanner;
 
 public class Main {
-    public static double calcularMedia(double n1, double n2, double n3) {
-        return (n1 + n2 + n3) / 3;
+    public static boolean verificarPar(int num) {
+        return num % 2 ==0;
     }
 
-    public static void main(String[] args) {
+    public void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Digite a primeira nota: ");
-        double n1 = sc.nextDouble();
-        System.out.println("Digite a segunda nota: ");
-        double n2 = sc.nextDouble();
-        System.out.println("Digite a terceira nota: ");
-        double n3 = sc.nextDouble();
+        System.out.println("Digite o valor: ");
+        int num = sc.nextInt();
 
-        double media = calcularMedia(n1, n2, n3);
-        System.out.println("A média é: " + media);
+        if (verificarPar(num)){
+            System.out.println("True, " + num + " é par. ");
+        }else {
+            System.out.println("False," + num + " é ímpar.");
+        }
 
     }
 }
