@@ -18,7 +18,7 @@ class Main {
                 System.out.println("ARQUIVO CRIADO! " + arquivo.getName());
             } else
             {
-                System.out.println("falha ao criar");
+                System.out.println("falha ao criar.");
             }
         }
 
