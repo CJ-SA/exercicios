@@ -28,7 +28,7 @@ public class Main {
             System.out.println("Falha ao manipular o arquivo.");
         }
         FileWriter eulirico = new FileWriter("exemplo.txt", true);
-        eulirico.write("boa ");
+        eulirico.write("Boa ");
         eulirico.close();
     }
 }
