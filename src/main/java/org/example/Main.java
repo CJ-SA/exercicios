@@ -1,4 +1,5 @@
 package com.example;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import  java.util.Scanner;
@@ -8,27 +9,50 @@ import java.io.File;
 public class Main {
     public static void main(String[] args) throws IOException {
 
-        Scanner sc = new Scanner(System.in);
+        File arquivo = new File("teste.txt");
 
-        File arquivo = new File ("exemplo.txt");
+        if (arquivo.exists()) {
+            System.out.println("Arquivo já existe");
 
-        try
-        {
-            if (arquivo.exists()) {
-                System.out.println("O arquivo já existe. ");
-            } else {
+        } else {
+
+            try {
                 if (arquivo.createNewFile()) {
-                    System.out.println("Arquivo criado com sucesso: " + arquivo.getName());
+                    System.out.println("Criado com sucesso");
                 } else {
-                    System.out.println("Falha ao criar arquivo. ");
+                    System.out.println("Deu ruim!");
                 }
+
+            } catch (IOException e) {
+                System.out.println("Windows não deixou :(");
             }
-        } catch (IOException e)
-        {
-            System.out.println("Falha ao manipular o arquivo.");
         }
-        FileWriter eulirico = new FileWriter("exemplo.txt", true);
-        eulirico.write("Boa ");
-        eulirico.close();
+
+        try {
+
+            FileWriter escritor = new FileWriter("teste.txt", false);
+            escritor.write("Ola\n");
+            escritor.close();
+            System.out.println("Frase escrita com sucesso!");
+
+        } catch (IOException e) {
+            System.out.println("Windows não deixou escrever");
+        }
+
+        if (arquivo.exists()) {
+            System.out.println("\nLendo o arquivo:");
+            try {
+                FileReader leitor = new FileReader("teste.txt");
+                int letra;
+                while ((letra = leitor.read()) != -1) {
+                    System.out.print((char) letra);
+                }
+                leitor.close();
+            } catch (IOException e) {
+                System.out.println("Windows não deixou :(");
+            }
+        } else {
+            System.out.println("Arquivo não encontrado");
+        }
     }
 }
