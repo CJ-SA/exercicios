@@ -8,7 +8,7 @@ public class Main {
 
         Scanner sc = new Scanner(System.in);
 
-        String path = "C:/Users//Downloads/ativos.csv";
+        String path = "C:/Users/51459452801/Downloads/ativos.csv";
 
         File eulirico = new File(path);
 
@@ -17,22 +17,23 @@ public class Main {
         }
         try (BufferedReader ArquivoBuffer = new BufferedReader(new FileReader(eulirico))) {
             String linha;
-            int total = -1;
             while ((linha = ArquivoBuffer.readLine()) != null) {
                 String[] campos = linha.split(",");
                 String host = campos[0];
-                String ip = campos[1];
                 String sistema = campos[2];
+                String linux = "";
+                if (sistema.startsWith("Linux") ){
+                    linux = sistema;
+                    System.out.println("Host: " + host);
+                    System.out.println("Sistema: " + linux);
+                    System.out.println("-----------------");
+                }
 
 
-                System.out.println("Host: " + host);
-                System.out.println("IP: " + ip);
-                System.out.println("Sistema: " + sistema);
-                System.out.println("-----------------");
-                total = total+ 1;
+
+
 
             }
-            System.out.println(total);
         } catch(IOException e){
                 System.out.println("Erro na leitura de arquivo" + e.getMessage());
             }
