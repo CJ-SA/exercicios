@@ -19,13 +19,13 @@ public class Main {
             String linha;
             while ((linha = ArquivoBuffer.readLine()) != null) {
                 String[] campos = linha.split(",");
-                String host = campos[0];
+                String ip = campos[1];
                 String sistema = campos[2];
-                String linux = "";
-                if (sistema.startsWith("Linux") ){
-                    linux = sistema;
-                    System.out.println("Host: " + host);
-                    System.out.println("Sistema: " + linux);
+                String windows = "";
+                if (sistema.startsWith("Windows") ){
+                    windows = sistema;
+                    System.out.println("Host: " + ip);
+                    System.out.println("Sistema: " + windows);
                     System.out.println("-----------------");
                 }
 
