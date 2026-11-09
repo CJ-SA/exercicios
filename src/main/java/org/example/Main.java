@@ -5,51 +5,38 @@ import  java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws IOException {
+        try {
+            BufferedReader leitor = new BufferedReader(new FileReader("/C://Users/Downloads/ativos.csv"));
+            BufferedWriter escritor = new BufferedWriter(new FileWriter("inventario_atualizado.csv"));
 
-        Scanner sc = new Scanner(System.in);
+            String linha = leitor.readLine();
+            escritor.write(linha + ", status");
+            escritor.newLine();
 
-        String path = "C:/Users//Downloads/ativos.csv";
+            while ((linha = leitor.readLine()) != null) {
+                String[] dados = linha.split(",");
+                String host = dados[0];
+                String ip = dados[1];
+                String so = dados[2];
 
-        File eulirico = new File(path);
-
-        if (eulirico.exists()) {
-            System.out.println("iniciando leitura.");
-        }
-        try (BufferedReader ArquivoBuffer = new BufferedReader(new FileReader(eulirico))) {
-            String linha;
-            int firewall = 0;
-            int windows = 0;
-            int linux = 0;
-            while ((linha = ArquivoBuffer.readLine()) != null) {
-                String[] campos = linha.split(",");
-                String host = campos[0];
-                String ip = campos[1];
-                String sistema = campos[2];
-
-                if (sistema.startsWith("Windows")) {
-                    windows = windows + 1;
-
-                } else if (sistema.startsWith("Linux")) {
-                    linux = linux + 1;
-
-                } else if (sistema.startsWith("Storage")) {
-                    firewall = firewall + 1;
+                String status;
+                if (so.toLowerCase().contains("windows")) {
+                    status = "Online";
+                } else if (so.toLowerCase().contains("linux") || so.contains("Ubuntu") || so.contains("Debian") || so.contains("Rocky") || so.contains("Kali")) { //[cite: 15, 19]
+                    status = "Em Monitoramento";
+                } else {
+                    status = "Desconhecido";
                 }
 
-                System.out.println("-----------------");
-                System.out.println("host: " + host);
-                System.out.println("Ip: " + ip);
-                System.out.println("Sistema: " + sistema);
-
-            }
-            System.out.println("==========TIPOS DE SISTEMAS==========");
-            System.out.println("firewall : " + firewall);
-            System.out.println("windows: " + windows);
-            System.out.println("linux: " + linux);
-        } catch(IOException e){
-                System.out.println("Erro na leitura de arquivo" + e.getMessage());
+                escritor.write(host + "," + ip + "," + so + "," + status);
+                escritor.newLine();
             }
 
-
+            leitor.close();
+            escritor.close();
+            System.out.println("Relatorio gerado com sucesso!");
+        } catch (IOException e) {
+            System.out.println("Erro: " + e.getMessage());
         }
     }
+}
