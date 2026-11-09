@@ -5,36 +5,32 @@ import  java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        try {
-            BufferedReader leitor = new BufferedReader(new FileReader("/C://Users/Downloads/ativos.csv"));
-            BufferedWriter escritor = new BufferedWriter(new FileWriter("inventario_atualizado.csv"));
+        int contWindows = 0;
+        int contLinux = 0;
+        int contMac = 0;
 
+        try {
+            BufferedReader leitor = new BufferedReader(new FileReader("/C:/Users/Downloads/ativos.csv"));
             String linha = leitor.readLine();
-            escritor.write(linha + ", status");
-            escritor.newLine();
 
             while ((linha = leitor.readLine()) != null) {
                 String[] dados = linha.split(",");
-                String host = dados[0];
-                String ip = dados[1];
-                String so = dados[2];
+                String so = dados[2].toLowerCase();
 
-                String status;
-                if (so.toLowerCase().contains("windows")) {
-                    status = "Online";
-                } else if (so.toLowerCase().contains("linux") || so.contains("Ubuntu") || so.contains("Debian") || so.contains("Rocky") || so.contains("Kali")) { //[cite: 15, 19]
-                    status = "Em Monitoramento";
-                } else {
-                    status = "Desconhecido";
+                if (so.contains("windows")) {
+                    contWindows++;
+                } else if (so.contains("linux") || so.contains("ubuntu") || so.contains("debian") || so.contains("rocky") || so.contains("kali")) {
+                    contLinux++;
+                } else if (so.contains("mac") || so.contains("macos")) {
+                    contMac++;
                 }
-
-                escritor.write(host + "," + ip + "," + so + "," + status);
-                escritor.newLine();
             }
-
             leitor.close();
-            escritor.close();
-            System.out.println("Relatorio gerado com sucesso!");
+
+            System.out.println("Total Windows: " + contWindows);
+            System.out.println("Total Linux: " + contLinux);
+            System.out.println("Total macOS: " + contMac);
+
         } catch (IOException e) {
             System.out.println("Erro: " + e.getMessage());
         }
