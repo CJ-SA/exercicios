@@ -10,7 +10,7 @@ public class Main {
         String dataAtual = LocalDate.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
 
         try {
-            BufferedReader leitor = new BufferedReader(new FileReader("/C://Users//Downloads//ativos.csv/"));
+            BufferedReader leitor = new BufferedReader(new FileReader("/C://Users/Downloads/ativos.csv/"));
             BufferedWriter escritor = new BufferedWriter(new FileWriter("inventario_auditado.csv"));
 
             String linha = leitor.readLine();
@@ -22,8 +22,16 @@ public class Main {
                 String host = dados[0];
                 String ip = dados[1];
                 String so = dados[2];
+                int criticidade = 0;
+                if ((so.contains("linux") || so.contains("ubuntu") || so.contains("debian") || so.contains("rocky") || so.contains("kali"))){
+                    criticidade = criticidade + 7;
+                } else if ((so.contains("windows"))){
+                    criticidade = criticidade + 5;
+                } else if (so.contains("mac")|| so.contains("macOS")){
+                    criticidade = criticidade + 3;
+                }
 
-                escritor.write(host + "," + ip + "," + so + "," + dataAtual);
+                escritor.write(host + ", " + ip + ", " + so + ", " + dataAtual + ", risco: " + criticidade);
                 escritor.newLine();
             }
 
